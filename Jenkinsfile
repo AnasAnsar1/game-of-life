@@ -1,5 +1,5 @@
 pipeline {
-  agent { labels 'GOL-JDK' }
+  agent { label 'GOL-JDK' }
   stages {
     stage('SCM') {
       steps {
