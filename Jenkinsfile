@@ -1,5 +1,8 @@
 pipeline {
   agent { label 'GOL-JDK' }
+
+  triggers { pollSCM ('* * * * *') }
+
   stages {
     stage('SCM') {
       steps {
