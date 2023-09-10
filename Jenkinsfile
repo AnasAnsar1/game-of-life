@@ -16,7 +16,7 @@ pipeline {
     }
     stage('post_build_message') {
       steps {
-        sh 'Changed message for pollSCM"'
+        sh 'echo "Changed message for pollSCM"'
       }
     }
   }
