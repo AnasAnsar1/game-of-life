@@ -3,6 +3,10 @@ pipeline {
 
   triggers { pollSCM ('* * * * *') }
 
+  parameters {
+    string(name: 'Maven_Goal', defaultValue: 'mvn', description: 'Enter maven goal.' )
+  }
+
   stages {
     stage('SCM') {
       steps {
@@ -11,7 +15,7 @@ pipeline {
     } 
     stage('build') {
       steps {
-        sh 'mvn package'
+        sh "mvn ${params.Maven_Goal}"
       }
     }
   }
