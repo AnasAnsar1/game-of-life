@@ -25,10 +25,10 @@ pipeline {
     success {
       archiveArtifacts artifacts: '/home/ubuntu/remote_root/workspace/Game-of-life/gameoflife-web/target/gameoflife.war'
     }
-  }
-  post {
+
     always {
       junit '/remote_root/workspace/Game-of-life/gameoflife-web/target/surefire-reports/*.xml'
     }
   }
+
 }
