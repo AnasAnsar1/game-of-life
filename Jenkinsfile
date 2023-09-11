@@ -14,11 +14,6 @@ pipeline {
         sh 'mvn package'
       }
     }
-    stage('post_build_message') {
-      steps {
-        sh 'echo "Changed message for pollSCM"'
-      }
-    }
   }
 
   post {
@@ -27,7 +22,7 @@ pipeline {
     }
 
     always {
-      junit '/remote_root/workspace/Game-of-life/gameoflife-web/target/surefire-reports/*.xml'
+      junit '**/surefire-reports/*.xml'
     }
   }
 
