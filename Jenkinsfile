@@ -11,7 +11,7 @@ pipeline {
     } 
     stage('build & SonarQube analysis') {
       steps {
-        withSonarQubeEnv('GOL_SONAR', envOnly: true) {
+        withSonarQubeEnv('GOL_SONAR') {
           sh 'mvn clean package sonar:sonar'
         }
       }
