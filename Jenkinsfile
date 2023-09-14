@@ -9,6 +9,7 @@ pipeline {
         git branch: 'master', url: 'https://github.com/AnasAnsar1/game-of-life.git'
       }
     } 
+    
     stage('build & SonarQube analysis') {
       steps {
         withSonarQubeEnv('GOL_SONAR') {
@@ -16,5 +17,12 @@ pipeline {
         }
       }
     }
+    
+    post {
+      always {
+        junit '**/surefire-report/*.xml'
+      }
+    }
+
   }
 }
