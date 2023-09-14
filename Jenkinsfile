@@ -17,12 +17,12 @@ pipeline {
         }
       }
     }
-    
-    post {
+  }
+
+  post {
       always {
         junit '**/surefire-report/*.xml'
       }
     }
 
-  }
 }
