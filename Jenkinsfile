@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'GOL-JDK' }
+  agent { label 'GOL' }
 
   triggers { pollSCM ('* * * * *') }
 
@@ -12,8 +12,8 @@ pipeline {
     
     stage('build & SonarQube analysis') {
       steps {
-        withSonarQubeEnv('GOL_SONAR') {
-          sh 'mvn clean package sonar'
+        withSonarQubeEnv('SELF_HOSTED') {
+          sh 'mvn clean package sonar:sonar'
         }
       }
     }
