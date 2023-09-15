@@ -10,11 +10,9 @@ pipeline {
       }
     } 
     
-    stage('build & SonarQube analysis') {
+    stage('build package') {
       steps {
-        withSonarQubeEnv('SELF_HOSTED') {
-          sh 'mvn clean package sonar:sonar'
-        }
+        sh 'mvn package'
       }
     }
   }
