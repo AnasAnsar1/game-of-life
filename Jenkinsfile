@@ -17,10 +17,4 @@ pipeline {
     }
   }
 
-  post {
-      always {
-        junit '**/surefire-report/*.xml'
-      }
-    }
-
 }
